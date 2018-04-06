@@ -22,5 +22,12 @@ int main() {
 	for (map<string, string>::iterator it = seqMap.begin(); it != seqMap.end(); ++it) {
 		cout << it->first << "\n" << it->second << endl;
 	}
+
+// vector reference test
+	vector<string> vecRef;
+	string str1 = "aabbcc";
+	string str2 = "ddeeff";
+	string& str1ref = str1;
+	string& str2ref = str2;
 	return 0;
 }

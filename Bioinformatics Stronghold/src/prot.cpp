@@ -3,9 +3,9 @@
 #include <string>
 #include <map>
 #include "../include/reader.h"
-#include "../include/rnaCodon.h"
+#include "../include/codon.h"
 #include "reader.cpp"
-#include "rnaCodon.cpp"
+#include "codon.cpp"
 using namespace std;
 
 void transRna();
@@ -19,9 +19,9 @@ void transRna() {
 	Reader r("../data/rosalind_prot.txt");
 	string fileName = r.getFileName();
 	string rna = r.getString(fileName);
-	RnaCodon rc;
+	Codon rc;
 	// Using static public variable also works.
-	//MapSS codon = RnaCodon::rnaCodonMap;
+	//MapSS codon = Codon::rnaCodonMap;
 	MapSS codon = rc.getRnaCodonMap();
 	int rnaLen = rna.length();
 	string prot = "";
