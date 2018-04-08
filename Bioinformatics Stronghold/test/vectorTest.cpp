@@ -40,5 +40,12 @@ int main() {
 	vector<int> vecLength;
 	cout << "vector length test" << endl;
 	cout << vecLength.size() << endl;	
+// empty the vector
+	vector<string> vecStr{"a", "b", "c", "d", "e", "f"};
+	for (auto& v : vecStr) {
+		cout << v << " ";
+	}
+	vecStr.clear();
+	cout << vecStr.size() << endl;
 	return 0;
 }
