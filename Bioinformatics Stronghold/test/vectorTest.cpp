@@ -29,5 +29,16 @@ int main() {
 	string str2 = "ddeeff";
 	string& str1ref = str1;
 	string& str2ref = str2;
+// vector append to vector, using insert
+	vector<string> vec1 = {"a", "b", "c"};
+	vector<string> vec2 = {"x", "y", "z"};
+	vec1.insert(vec1.end(), vec2.begin(), vec2.end());
+	for (auto &v : vec1) {
+		cout << v << endl;
+	}
+// vector length test
+	vector<int> vecLength;
+	cout << "vector length test" << endl;
+	cout << vecLength.size() << endl;	
 	return 0;
 }

@@ -45,5 +45,12 @@ int main() {
 	AUGGCA
 	AUGGCG
 */
+	
+	cout << "substring test:" << endl;
+	seq = seq.substr(0,3);
+	cout << seq << endl;
+// string find() test
+
+	cout << seq.find('M') << endl;
 	return 0;
 }
