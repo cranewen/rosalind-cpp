@@ -47,5 +47,10 @@ int main() {
 	}
 	vecStr.clear();
 	cout << vecStr.size() << endl;
+// vector index test
+	cout << "vector index test: " << endl;
+	cout << vec1[-1] << endl;
+	vector<int> vecInt{123, 5789, 35};
+	cout << vecInt[-1] << endl;
 	return 0;
 }
