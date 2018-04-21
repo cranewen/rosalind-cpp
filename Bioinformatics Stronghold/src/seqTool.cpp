@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "../include/seqTool.h"
 
 SeqTool::SeqTool() {
@@ -15,7 +16,7 @@ std::string SeqTool::dnaCompSeq(std::string seq) {
 	for (char& c: seq) {
 		compSeq += dnaBasePair[toupper(c)];
 	}
-	reverse(compSeq.begin(), compSeq.end());
+	std::reverse(compSeq.begin(), compSeq.end());
 	return compSeq;
 }
 
@@ -28,7 +29,7 @@ std::string SeqTool::rnaCompSeq(std::string seq) {
 	for (char& c: seq) {
 		compSeq += rnaBasePair[toupper(c)];
 	}
-	reverse(compSeq.begin(), compSeq.end());
+	std::reverse(compSeq.begin(), compSeq.end());
 	return compSeq;
 }
 
