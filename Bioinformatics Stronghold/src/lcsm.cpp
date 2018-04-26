@@ -9,7 +9,7 @@ bool isInString(string, string);
 string lcsm(map<string, string>);
 
 int main() {
-	Reader r("../data/rosalind_lcsm-2.txt");
+	Reader r("../data/rosalind_lcsm-4.txt");
 	string fileName = r.getFileName();
 	map<string, string> seqMap = r.getMap(fileName);
 	cout << lcsm(seqMap) << endl; 
