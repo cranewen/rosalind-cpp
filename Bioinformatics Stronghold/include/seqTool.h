@@ -14,8 +14,8 @@ typedef std::map<char, char> MapCC;
 class SeqTool {
 public:
 	SeqTool();
-	std::string dnaCompSeq(std::string);
-	std::string rnaCompSeq(std::string);
+	std::string dnaCompSeq(const std::string*);
+	std::string rnaCompSeq(const std::string*);
 	~SeqTool();
 private:
 

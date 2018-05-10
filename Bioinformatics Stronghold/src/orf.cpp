@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <map>
 #include <string>
 #include <vector>
@@ -6,6 +7,8 @@
 #include "seqTool.cpp"
 #include "../include/codon.h"
 #include "codon.cpp"
+#include "../include/reader.h"
+#include "reader.cpp"
 using namespace std;
 
 void getReadingFrames(const string&);
@@ -34,11 +37,26 @@ GCGGGGCATACACCAACCCACGCGGAAGCGGTTGAGGCGTCCCCGAAACCGCTTGGTATG\
 CTCACCGCGATGGTCGGAGTAGGTCTAGAGCTTCAAACAGACTGTCGATGTGGATAGCCG\
 AGTACATTGGCTCACAGAGGTTCACGCTCATGCACGCTACTAGCAGTG";	
 	const string& seq2Ref = seq2;
-	getReadingFrames(seq2Ref);
+	Reader r("../test/orftest.txt");
+	string fileName = r.getFileName();
+	string seq3 = r.getString(fileName);
+	const string& seq3Ref = seq3;
+	getReadingFrames(seq3Ref);
 	vector<string> orfs = collectAllOrfs();
+	ofstream outFile("../test/orfOut.txt");
+	if(outFile.is_open()) {
+		for(auto& orf : orfs) {
+			outFile << orf << "\n";
+		}
+		outFile.close();
+	}else {
+		cout << "Can't open file!" << endl;
+	}
+/*
 	for (auto& orf : orfs) {
 		cout << orf << endl;
 	}
+*/
 	return 0;
 }
 
@@ -137,7 +155,7 @@ vector<string> collectAllOrfs() {
 		orfs.insert(orfs.end(), temp.begin(), temp.end());
 	}
 // Remember to remove the duplicates, because it is possible to have duplicates over the complimentary strings
-	sort(orfs.begin(), orfs.end());
+	//sort(orfs.begin(), orfs.end());
 	orfs.erase(unique(orfs.begin(), orfs.end()), orfs.end());
 	return orfs;
 }
